@@ -45,12 +45,11 @@ public class POELogin {
                 bPass = false; // Set bPass to false if a special character is found
             }
 
-            
             // Check if the current character is a digit
-            if (Character.isDigit(ch)) { 
+            if (Character.isDigit(ch)) {
                 bNumber = true; // Set bNumber to true if a digit is found
-                
-            // Check if the current character is uppercase
+
+                // Check if the current character is uppercase
             } else if (Character.isUpperCase(ch)) {
                 bCapital = true; // Set bCapital to true if an uppercase letter is found
 
@@ -72,6 +71,12 @@ public class POELogin {
         } else {
             return ("Registration successfully captured");
         }
+    }
+
+    public static boolean loginUser(String sLoginUser, String LoginPass) {
+
+        return false;
+
     }
 
 }

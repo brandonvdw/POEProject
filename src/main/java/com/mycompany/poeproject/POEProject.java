@@ -7,27 +7,53 @@ package com.mycompany.poeproject;
  *
  * @author brand
  */
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 public class POEProject {
 
     public static void main(String[] args) {
 
-        String Password = "";
-        String Username = "";
-        String FirstName = "";
-        String LastName = "";
+        Scanner scanner = new Scanner(System.in);
+        
 
-        FirstName = JOptionPane.showInputDialog("Enter your First Name: ");
-        LastName = JOptionPane.showInputDialog("Enter your Last Name: ");
+        String sFirstName = "";
+        String sLastName = "";
+        String sUsername = "";
+        String sPassword = "";
 
-        Username = JOptionPane.showInputDialog("Pleases enter your username");
-        // JOptionPane.showMessageDialog(null, POELogin.checkUserName(Username));
+        String sLoginUser = "";
+        String sLoginPass = "";
 
-        Password = JOptionPane.showInputDialog("Pleases enter your password");
-        // JOptionPane.showMessageDialog(null, POELogin.checkPasswordComplexity(Password));
+        System.out.println("Please select an option:");
+        System.out.println("1. Create an account");
+        System.out.println("2. Login");
 
-        JOptionPane.showMessageDialog(null, POELogin.registerUser(Username, Password));
+        
+        int iChoice = scanner.nextInt();
+        
+        if (iChoice == 1) {
+            
+
+            System.out.println("Please enter your First Name: ");
+            sFirstName = scanner.nextLine();
+            System.out.println("Please enter your Last Name: ");
+            sLastName = scanner.nextLine();
+            System.out.println("Please enter a Username:");
+            sUsername = scanner.nextLine();
+            System.out.println("Please enter a Password: ");
+            sPassword = scanner.nextLine();
+
+            System.out.println(POELogin.registerUser(sUsername, sPassword));
+
+        } else if (iChoice == 2) {
+            System.out.println("Please enter your Username");
+            sLoginUser = scanner.nextLine();
+            System.out.println("Please enter your Password");
+            sLoginPass = scanner.nextLine();
+
+        } else {
+            System.out.println("Please select a VALID option");
+        }
 
     }
 }
