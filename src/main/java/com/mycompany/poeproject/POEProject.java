@@ -12,9 +12,11 @@ import java.util.Scanner;
 public class POEProject {
 
     public static void main(String[] args) {
+        
+        
+        
 
         Scanner scanner = new Scanner(System.in);
-        
 
         String sFirstName = "";
         String sLastName = "";
@@ -28,9 +30,8 @@ public class POEProject {
         System.out.println("1. Create an account");
         System.out.println("2. Login");
 
-        
         int iChoice = scanner.nextInt();
-        
+
         if (iChoice == 1) {
             
 
@@ -44,6 +45,7 @@ public class POEProject {
             sPassword = scanner.nextLine();
 
             System.out.println(POELogin.registerUser(sUsername, sPassword));
+            //POELogin user = new POELogin(sUsername, sPassword);
 
         } else if (iChoice == 2) {
             System.out.println("Please enter your Username");
