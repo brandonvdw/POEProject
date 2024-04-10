@@ -14,7 +14,7 @@ public class POELogin {
     private static boolean bUser = false;
 
     public static boolean checkUserName(String username) { // Explain this code
-         int underscoreCount = 0;
+        int underscoreCount = 0;
         if (username.length() > 5) {
             return false;  // Length exceeds 5 characters
         }
@@ -27,29 +27,39 @@ public class POELogin {
 
     }
 
-    public static boolean checkPasswordComplexity(String Password) { // This does not work anynmore, fix it 
+    public static boolean checkPasswordComplexity(String Password) {
 
-        int iCap = 0;
-        int iLow = 0;
+        char ch; // To store each character of the password
+        boolean bCapital = false; //Boolean flag to see if the current character of the password contains a capital letter 
+        boolean bNumber = false; //Boolean flag to see if the current character of the password is a number or not 
+        boolean bPass = false; //Boolean flag to see if the current character of the password is a special character or not
+        String specialCharacters = "!@#$%^&*()_+{}\":?><,./;'[]\\-="; //String of the special characters that are used to see if the password contaiains any speical characters
 
-        if (Password.length() >= 8) {
+        for (int i = 0; i < Password.length(); i++) { // Beginning that goes through each character of the password and checks if the criteria is matched
+            ch = Password.charAt(i); // Setting the current character of the password to the char "ch" so that it can be checked 
 
-            for (int k = 0; k < Password.length(); k++) { // Make sure to reference https://stackoverflow.com/questions/40336374/how-do-i-check-if-a-java-string-contains-at-least-one-capital-letter-lowercase
-
-                if (Password.matches(".*[A-Z].*")) {
-                    iCap = iCap + 1;
-                    bPass = true;
-                    return true;
-
-                } else {
-                    bPass = false;
-                    return false;
-
-                }
+            // Check if the current character is a special character
+            if (specialCharacters.indexOf(ch) != -1) { //Compares ch to the special characters string to see if the current character is a special character or not 
+                bPass = true; // Set bPass to true if a special character is found
+            } else {
+                bPass = false; // Set bPass to false if a special character is found
             }
-            return true;
+
+            
+            // Check if the current character is a digit
+            if (Character.isDigit(ch)) { 
+                bNumber = true; // Set bNumber to true if a digit is found
+                
+            // Check if the current character is uppercase
+            } else if (Character.isUpperCase(ch)) {
+                bCapital = true; // Set bCapital to true if an uppercase letter is found
+
+            }
+            if (bNumber && bCapital && bPass) { //Checks to see if all criteria is met, if so then true will be returned
+                return true;
+            }
         }
-        return false;
+        return false; // If the loop completes without meeting all criteria the it will return false
 
     }
 
