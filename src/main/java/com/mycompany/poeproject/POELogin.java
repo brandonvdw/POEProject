@@ -4,16 +4,36 @@
  */
 package com.mycompany.poeproject;
 
+import org.w3c.dom.UserDataHandler;
+
 /**
  *
  * @author brand
  */
 public class POELogin {
 
-    private static boolean bPass = false;
-    private static boolean bUser = false;
-    private String username;
-    private String password;
+    private String sLoginPass;
+    private String sLoginUser;
+    private String sLoginName;
+    private String sLoginLastName;
+    private String sRegisterPass;
+    private String sRegisterUser;
+
+    public void setsRegisterPass(String sRegisterPass) {
+        this.sRegisterPass = sRegisterPass;
+    }
+
+    public void setsRegisterUser(String sRegisterUser) {
+        this.sRegisterUser = sRegisterUser;
+    }
+
+    public String getsRegisterPass() {
+        return sRegisterPass;
+    }
+
+    public String getsRegisterUser() {
+        return sRegisterUser;
+    }
 
     public static boolean checkUserName(String username) { // Explain this code
         int underscoreCount = 0;
@@ -75,37 +95,47 @@ public class POELogin {
         }
     }
 
-    public static boolean loginUser(String sLoginUser, String LoginPass) {
-
- 
-        
-        return false;
-
+    public String getsLoginPass() {
+        return sLoginPass;
     }
 
-  /*  public POELogin(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public String getsLoginUser() {
+        return sLoginUser;
     }
 
-    // Getter method for username
-    public String getUsername() {
-        return username;
+    public String getsLoginName() {
+        return sLoginName;
     }
 
-    // Setter method for username
-    public void setUsername(String username) {
-        this.username = username;
+    public String getsLoginLastName() {
+        return sLoginLastName;
     }
 
-    // Getter method for password
-    public String getPassword() {
-        return password;
+    public void setsLoginPass(String sLoginPass) {
+        this.sLoginPass = sLoginPass;
     }
 
-    // Setter method for password
-    public void setPassword(String password) {
-        this.password = password;
-    }*/
+    public void setsLoginUser(String sLoginUser) {
+        this.sLoginUser = sLoginUser;
+    }
+
+    public void setsLoginName(String sLoginName) {
+        this.sLoginName = sLoginName;
+    }
+
+    public void setsLoginLastName(String sLoginLastName) {
+        this.sLoginLastName = sLoginLastName;
+    }
+
+    public static boolean loginUser(POELogin User, String sLoginUser, String LoginPass) {
+
+        if (User.getsRegisterUser().equals(User.getsLoginUser()) && User.getsRegisterPass().equals(User.getsLoginPass())) {
+            return true;
+
+        } else {
+            return false;
+        }
+
+    }
 
 }
