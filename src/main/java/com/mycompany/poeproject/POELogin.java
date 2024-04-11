@@ -4,7 +4,7 @@
  */
 package com.mycompany.poeproject;
 
-import org.w3c.dom.UserDataHandler;
+//import org.w3c.dom.UserDataHandler;
 
 /**
  *
@@ -18,22 +18,6 @@ public class POELogin {
     private String sLoginLastName;
     private String sRegisterPass;
     private String sRegisterUser;
-
-    public void setsRegisterPass(String sRegisterPass) {
-        this.sRegisterPass = sRegisterPass;
-    }
-
-    public void setsRegisterUser(String sRegisterUser) {
-        this.sRegisterUser = sRegisterUser;
-    }
-
-    public String getsRegisterPass() {
-        return sRegisterPass;
-    }
-
-    public String getsRegisterUser() {
-        return sRegisterUser;
-    }
 
     public static boolean checkUserName(String username) { // Explain this code
         int underscoreCount = 0;
@@ -86,13 +70,24 @@ public class POELogin {
 
     public static String registerUser(String UserName, String Password) { // Idk what registerUser is meant to do 
 
-        if (checkPasswordComplexity(Password) == false) {
+        if (!checkPasswordComplexity(Password)) {
             return ("Password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number and a special character ");
-        } else if (checkUserName(UserName) == false) {
+        } else if (!checkUserName(UserName)) {
             return ("Username is not correctly formatted, please ensure that your username contains an underscore and is no more than 5 characters in length");
         } else {
             return ("Registration successfully captured");
         }
+    }
+
+    public static boolean loginUser(POELogin User, String sLoginUser, String LoginPass) {
+
+        if (User.getsRegisterUser().equals(User.getsLoginUser()) && User.getsRegisterPass().equals(User.getsLoginPass())) {
+            return true;
+
+        } else {
+            return false;
+        }
+
     }
 
     public String getsLoginPass() {
@@ -127,15 +122,20 @@ public class POELogin {
         this.sLoginLastName = sLoginLastName;
     }
 
-    public static boolean loginUser(POELogin User, String sLoginUser, String LoginPass) {
+    public void setsRegisterPass(String sRegisterPass) {
+        this.sRegisterPass = sRegisterPass;
+    }
 
-        if (User.getsRegisterUser().equals(User.getsLoginUser()) && User.getsRegisterPass().equals(User.getsLoginPass())) {
-            return true;
+    public void setsRegisterUser(String sRegisterUser) {
+        this.sRegisterUser = sRegisterUser;
+    }
 
-        } else {
-            return false;
-        }
+    public String getsRegisterPass() {
+        return sRegisterPass;
+    }
 
+    public String getsRegisterUser() {
+        return sRegisterUser;
     }
 
 }
