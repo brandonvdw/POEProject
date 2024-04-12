@@ -10,60 +10,64 @@ package com.mycompany.poeproject;
  */
 public class POELogin {
 
-    private String sLoginPass;
-    private String sLoginUser;
-    private String sLoginName;
-    private String sLoginLastName;
-    private String sRegisterPass;
-    private String sRegisterUser;
+    //Variables to store all the user's information
+    private String sLoginPass; // Login Password
+    private String sLoginUser; // Login Usernme
+    private String sLoginName; // Login First name
+    private String sLoginLastName; //Login Last Name
+    private String sRegisterPass; // Register User Password
+    private String sRegisterUser; // Register User Name
 
-    public static boolean checkUserName(String username) { // Explain this code
+    public static boolean checkUserName(String username) { // This method checks that the username meets the reuirements
         int underscoreCount = 0;
-        if (username.length() > 5) {
-            return false;  // Length exceeds 5 characters
+        if (username.length() > 5) { //Checks if the username entered is greater than 5 characters
+            return false; // If the username exceeds 5 characters it will return false
         }
-        for (int i = 0; i < username.length(); i++) {
-            if (username.charAt(i) == '_') {
+        for (int i = 0; i < username.length(); i++) { //Beginning of forloop
+            if (username.charAt(i) == '_') { //Checks to see if the current character of the username is a underscore
                 underscoreCount++;        //Increments underscore if there is one
             }
         }
         return underscoreCount == 1; // If underscore account is 1 then checkUserName will return true else it will return false
 
     }
+    // Follwing method enssures that the password entered meets all the requirements
 
     public static boolean checkPasswordComplexity(String Password) {
 
-        char ch; // To store each character of the password
-        boolean bCapital = false; //Boolean flag to see if the current character of the password contains a capital letter 
-        boolean bNumber = false; //Boolean flag to see if the current character of the password is a number or not 
-        boolean bPass = false; //Boolean flag to see if the current character of the password is a special character or not
-        String specialCharacters = "!@#$%^&*()_+{}\":?><,./;'[]\\-="; //String of the special characters that are used to see if the password contaiains any speical characters
+        char ch;
+        boolean bCapital = false; // To check if there is a capital letter
+        boolean bNumber = false; // To check if there is a number
+
+        //String of the special characters that are used to see if the password contaiains any speical characters
+        String specialCharacters = "!@#$%^&*()_+{}\":?><,./;'[]\\-=";
 
         for (int i = 0; i < Password.length(); i++) { // Beginning that goes through each character of the password and checks if the criteria is matched
             ch = Password.charAt(i); // Setting the current character of the password to the char "ch" so that it can be checked 
 
             // Check if the current character is a special character
-            if (specialCharacters.indexOf(ch) != -1) { //Compares ch to the special characters string to see if the current character is a special character or not 
-                bPass = true; // Set bPass to true if a special character is found
+            if (specialCharacters.indexOf(ch) != -1) { //Checks to see if the current character is a string or not
 
+                //Checks to see if the current character is a digit
             } else if (Character.isDigit(ch)) {
-                bNumber = true; // Set bNumber to true if a digit is found
+                bNumber = true;
 
                 // Check if the current character is uppercase
             } else if (Character.isUpperCase(ch)) {
-                bCapital = true; // Set bCapital to true if an uppercase letter is found
+                bCapital = true;
 
             }
 
         }
-        if (bNumber && bCapital && bPass) { //Checks to see if all criteria is met, if so then true will be returned
+        if (bNumber && bCapital) { //Checks to see if all criteria is met, if so then true will be returned
             return true;
         }
         return false; // If the loop completes without meeting all criteria the it will return false
 
     }
 
-    public static String registerUser(String UserName, String Password) { // Idk what registerUser is meant to do 
+    // Returns the correct message to the user based on other methods results
+    public static String registerUser(String UserName, String Password) {
 
         if (!checkPasswordComplexity(Password)) {
             return ("Password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number and a special character ");
@@ -74,70 +78,86 @@ public class POELogin {
         }
     }
 
+    // Verifies that the information entered is the same as the matches the information uses when registering 
     public static boolean loginUser(POELogin User, String sLoginUser, String LoginPass) {
 
+        // Comapares the users login to the users register information 
         if (User.getsRegisterUser().equals(User.getsLoginUser()) && User.getsRegisterPass().equals(User.getsLoginPass())) {
-            return true;
+            return true; //Returns true if the information listed above matches
 
         } else {
-            return false;
+            return false; //Returns false if the information listed above matches
         }
 
     }
 
+    //Provides the necessary messaging to the user by comparing the Login and Register information
     public static String returnLoginStatus(POELogin User) {
 
-        if (loginUser(User, User.getsLoginUser(), User.getsLoginPass()) == true) {
+        // If the login and register Usernames and Passwords matches then it will return the apporopriate message
+        if (loginUser(User, User.getsLoginUser(), User.getsLoginPass())) {
             return ("Welcome " + User.getsLoginName() + ", " + User.getsLoginLastName() + " it is great to see you again");
 
         }
-        return ("Username or Password incorrect please try again");
+        return ("Username or Password incorrect please try again"); // else it will return the "incorrect" message
     }
 
+    // Getter for login password
     public String getsLoginPass() {
         return sLoginPass;
     }
 
+    // Getter for login username
     public String getsLoginUser() {
         return sLoginUser;
     }
 
+    // Getter for login name
     public String getsLoginName() {
         return sLoginName;
     }
 
+    // Getter for login last name
     public String getsLoginLastName() {
         return sLoginLastName;
     }
 
+    // Setter for login password
     public void setsLoginPass(String sLoginPass) {
         this.sLoginPass = sLoginPass;
     }
 
+    // Setter for login username
     public void setsLoginUser(String sLoginUser) {
         this.sLoginUser = sLoginUser;
     }
 
+    // Setter for login name
     public void setsLoginName(String sLoginName) {
         this.sLoginName = sLoginName;
     }
 
+    // Setter for login last name
     public void setsLoginLastName(String sLoginLastName) {
         this.sLoginLastName = sLoginLastName;
     }
 
+    // Setter for registration password
     public void setsRegisterPass(String sRegisterPass) {
         this.sRegisterPass = sRegisterPass;
     }
 
+    // Setter for registration username
     public void setsRegisterUser(String sRegisterUser) {
         this.sRegisterUser = sRegisterUser;
     }
 
+    // Getter for registration password
     public String getsRegisterPass() {
         return sRegisterPass;
     }
 
+    // Getter for registration username
     public String getsRegisterUser() {
         return sRegisterUser;
     }
