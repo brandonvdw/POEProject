@@ -15,29 +15,27 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class POEJUnitTest {
 
-    @Test
-    void testReturnLoginStatus() { // This returns the users login status as well
+   @Test
+void testReturnLoginStatus() {
+    POELogin User = new POELogin();
 
-        POELogin User = new POELogin();
+    // Setting the test data to the corresponding variables
+    String TestRegisterPass = "Brandon@2005";
+    String TestLoginPass = "Brandon@2005";
+    String TestLoginUser = "kyl_1";
+    String TestRegisterUser = "kyl_1";
 
-        // Setting the test data to the corresponding variables
-        String TestRegisterPass = "Brandon@2005";
-        String TestLoginPass = "Brandon@2005";
-        String TestLoginUser = "kyl_1";
-        String TestRegisterUser = "kyl_1";
+    // Calling the right methods so that the test doesn't give a null error as a result
+    User.setsLoginPass(TestLoginPass);
+    User.setsRegisterPass(TestRegisterPass);
+    User.setsLoginName(TestLoginUser);
+    User.setsRegisterUser(TestRegisterUser);
 
-        //Calling the right methods so that the test doesnt not give a null error as a result
-        User.setsLoginPass(TestLoginPass);
-        User.setsRegisterPass(TestLoginPass);
-        User.setsLoginName(TestLoginUser);
-        User.setsRegisterUser(TestRegisterUser);
+    String sExpected = ("Welcome " + User.getsLoginName() + ", " + User.getsLoginLastName() + " it is great to see you again");
+    String sActual = POELogin.returnLoginStatus(User, TestRegisterPass, TestLoginPass, TestLoginUser, TestRegisterUser);
 
-        String sExpected = ("Welcome " + User.getsLoginName() + ", " + User.getsLoginLastName() + " it is great to see you again");
-        String sActual = POELogin.returnLoginStatus(User, TestRegisterPass, TestLoginPass, TestLoginUser, TestRegisterUser);
-
-        Assertions.assertEquals(sExpected, sActual);
-
-    }
+    Assertions.assertEquals(sExpected, sActual);
+}
 
     @Test
     void testCheckRegisterUser() {
