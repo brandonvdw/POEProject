@@ -4,8 +4,6 @@
  */
 package com.mycompany.poeproject;
 
-//import org.w3c.dom.UserDataHandler;
-
 /**
  *
  * @author brand
@@ -47,12 +45,8 @@ public class POELogin {
             // Check if the current character is a special character
             if (specialCharacters.indexOf(ch) != -1) { //Compares ch to the special characters string to see if the current character is a special character or not 
                 bPass = true; // Set bPass to true if a special character is found
-            } else {
-                bPass = false; // Set bPass to false if a special character is found
-            }
 
-            // Check if the current character is a digit
-            if (Character.isDigit(ch)) {
+            } else if (Character.isDigit(ch)) {
                 bNumber = true; // Set bNumber to true if a digit is found
 
                 // Check if the current character is uppercase
@@ -60,9 +54,10 @@ public class POELogin {
                 bCapital = true; // Set bCapital to true if an uppercase letter is found
 
             }
-            if (bNumber && bCapital && bPass) { //Checks to see if all criteria is met, if so then true will be returned
-                return true;
-            }
+
+        }
+        if (bNumber && bCapital && bPass) { //Checks to see if all criteria is met, if so then true will be returned
+            return true;
         }
         return false; // If the loop completes without meeting all criteria the it will return false
 
@@ -88,6 +83,15 @@ public class POELogin {
             return false;
         }
 
+    }
+
+    public static String returnLoginStatus(POELogin User) {
+
+        if (loginUser(User, User.getsLoginUser(), User.getsLoginPass()) == true) {
+            return ("Welcome " + User.getsLoginName() + ", " + User.getsLoginLastName() + " it is great to see you again");
+
+        }
+        return ("Username or Password incorrect please try again");
     }
 
     public String getsLoginPass() {
