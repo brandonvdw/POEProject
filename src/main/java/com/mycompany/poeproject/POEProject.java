@@ -55,10 +55,12 @@ public class POEProject {
                 System.out.println("Please enter a Username:");
                 sUsername = scanner.nextLine();
                 User.setsRegisterUser(sUsername);
+                System.out.println(User.UserRegisterMessage(sUsername));
 
                 System.out.println("Please enter a Password: ");
                 sPassword = scanner.nextLine();
                 User.setsRegisterPass(sPassword);
+                System.out.println(User.UserRegisterMessagePassword(sPassword));
 
                 // Checking the validity of username and password by calling the "registerUser" method
                 System.out.println(POELogin.registerUser(sUsername, sPassword));
@@ -81,7 +83,7 @@ public class POEProject {
                 User.setsLoginPass(sLoginPassMain);
 
                 //Method that returns the login status and tells the user if they have entered their inforation correctly or not
-                System.out.println(POELogin.returnLoginStatus(User));
+                System.out.println(POELogin.returnLoginStatus(User, sPassword, sLoginPassMain, sLoginUserMain, sUsername));
 
             } else if (iChoice == 3) {
                 //Exiting the loop if yhe user chooses option 3 ("Quit")
@@ -93,4 +95,5 @@ public class POEProject {
 
         }
     }
+
 }

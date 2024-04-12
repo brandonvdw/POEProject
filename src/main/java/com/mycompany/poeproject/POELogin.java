@@ -11,12 +11,13 @@ package com.mycompany.poeproject;
 public class POELogin {
 
     //Variables to store all the user's information
-    private String sLoginPass; // Login Password
-    private String sLoginUser; // Login Usernme
-    private String sLoginName; // Login First name
-    private String sLoginLastName; //Login Last Name
-    private String sRegisterPass; // Register User Password
-    private String sRegisterUser; // Register User Name
+    private static String sLoginPass; // Login Password
+    private static String sLoginUser; // Login Usernme
+    private static String sLoginName; // Login First name
+    private static String sLoginLastName; //Login Last Name
+    private static String sRegisterPass; // Register User Password
+    private static String sRegisterUser; // Register User Name
+    private static boolean bLoginConfirm = false; //Boolean to check if the user is logged in
 
     public static boolean checkUserName(String username) { // This method checks that the username meets the reuirements
         int underscoreCount = 0;
@@ -92,16 +93,45 @@ public class POELogin {
     }
 
     //Provides the necessary messaging to the user by comparing the Login and Register information
-    public static String returnLoginStatus(POELogin User) {
+    public static String returnLoginStatus(POELogin User, String sRPass, String sLPass, String sLName, String sRName) {
+
+        // Get the appropraite methods and set them to the apporpriate variables so they can be compared
+        sLPass = sLoginPass;
+        sRPass = sRegisterPass;
+        sLName = sLoginUser;
+        sRName = sRegisterUser;
 
         // If the login and register Usernames and Passwords matches then it will return the apporopriate message
-        if (loginUser(User, User.getsLoginUser(), User.getsLoginPass())) {
+        if (sLPass.equals(sRPass) && sLName.equals(sRName)) {
+              bLoginConfirm = true;
             return ("Welcome " + User.getsLoginName() + ", " + User.getsLoginLastName() + " it is great to see you again");
-
+         
+            
         }
         return ("Username or Password incorrect please try again"); // else it will return the "incorrect" message
     }
 
+    public static String UserRegisterMessage(String CheckUsername) {
+
+        if (POELogin.checkUserName(CheckUsername)) {
+            return "Username succesfully captured";
+        } else {
+            return "Username is not correctly formatted please ensure that your username contains an underscore and is no more than 5 characters in length";
+        }
+
+    }
+
+    public static String UserRegisterMessagePassword(String CheckPassword) {
+
+        if (POELogin.checkPasswordComplexity(CheckPassword)) {
+            return "Password successfully captured";
+        } else {
+            return "Password is not correctly formatted please ensure that the password contains at least 8 characters, a capital letter, a number and a special character";
+        }
+
+    }
+
+  
     // Getter for login password
     public String getsLoginPass() {
         return sLoginPass;
