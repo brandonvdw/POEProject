@@ -15,9 +15,6 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class POEJUnitTest {
 
-           
-
-    
     @Test
     void testReturnLoginStatus() { // This returns the users login status as well
 
@@ -83,7 +80,7 @@ public class POEJUnitTest {
     }
 
     @Test
-    void testcheckUserName() {
+    void testCheckUserName() {
 
         POELogin User = new POELogin();
 
@@ -95,7 +92,7 @@ public class POEJUnitTest {
     }
 
     @Test
-    void testcheckInvalidUserName() {
+    void testCheckInvalidUserName() {
 
         POELogin User = new POELogin();
 
@@ -107,7 +104,7 @@ public class POEJUnitTest {
     }
 
     @Test
-    void testcheckPassowrd() {
+    void testCheckPassowrd() {
 
         POELogin User = new POELogin();
 
@@ -119,7 +116,7 @@ public class POEJUnitTest {
     }
 
     @Test
-    void testcheckInvalidPassword() {
+    void testCheckInvalidPassword() {
 
         POELogin User = new POELogin();
 
@@ -129,7 +126,5 @@ public class POEJUnitTest {
         Assertions.assertNotEquals(bExpected, bActual);
 
     }
-
- 
 
 }

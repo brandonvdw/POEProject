@@ -95,20 +95,12 @@ public class POELogin {
     //Provides the necessary messaging to the user by comparing the Login and Register information
     public static String returnLoginStatus(POELogin User, String sRPass, String sLPass, String sLName, String sRName) {
 
-        // Get the appropraite methods and set them to the apporpriate variables so they can be compared
-        sLPass = sLoginPass;
-        sRPass = sRegisterPass;
-        sLName = sLoginUser;
-        sRName = sRegisterUser;
-
-        // If the login and register Usernames and Passwords matches then it will return the apporopriate message
-        if (sLPass.equals(sRPass) && sLName.equals(sRName)) {
-              bLoginConfirm = true;
+        if (returnLoginMessage(User, sRPass, sLPass, sLName, sRName)) {
             return ("Welcome " + User.getsLoginName() + ", " + User.getsLoginLastName() + " it is great to see you again");
-         
-            
+        } else {
+            return ("Username or password incorrect, please try again");
         }
-        return ("Username or Password incorrect please try again"); // else it will return the "incorrect" message
+
     }
 
     public static String UserRegisterMessage(String CheckUsername) {
@@ -131,7 +123,24 @@ public class POELogin {
 
     }
 
-  
+    public static boolean returnLoginMessage(POELogin User, String sRPass, String sLPass, String sLName, String sRName) {
+
+        // Get the appropraite methods and set them to the apporpriate variables so they can be compared
+        sLPass = sLoginPass;
+        sRPass = sRegisterPass;
+        sLName = sLoginUser;
+        sRName = sRegisterUser;
+
+        // If the login and register Usernames and Passwords matches then it will return the apporopriate message
+        if (sLPass.equals(sRPass) && sLName.equals(sRName)) {
+            return true;
+
+        } else {
+            return false;
+        }
+
+    }
+
     // Getter for login password
     public String getsLoginPass() {
         return sLoginPass;
