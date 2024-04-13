@@ -11,13 +11,13 @@ package com.mycompany.poeproject;
 public class POELogin {
 
     //Variables to store all the user's information
-    private static String sLoginPass; // Login Password
-    private static String sLoginUser; // Login Usernme
-    private static String sLoginName; // Login First name
-    private static String sLoginLastName; //Login Last Name
-    private static String sRegisterPass; // Register User Password
-    private static String sRegisterUser; // Register User Name
-    private static boolean bLoginConfirm = false; //Boolean to check if the user is logged in
+    private String sLoginPass; // Login Password
+    private String sLoginUser; // Login Usernme
+    private String sLoginName; // Login First name
+    private String sLoginLastName; //Login Last Name
+    private String sRegisterPass; // Register User Password
+    private String sRegisterUser; // Register User Name
+    private boolean bLoginConfirm = false; //Boolean to check if the user is logged in
 
     public static boolean checkUserName(String username) { // This method checks that the username meets the reuirements
         int underscoreCount = 0;
@@ -94,13 +94,11 @@ public class POELogin {
 
     //Provides the necessary messaging to the user by comparing the Login and Register information
     public static String returnLoginStatus(POELogin User, String sRPass, String sLPass, String sLName, String sRName) {
-
-        if (returnLoginMessage(User, sRPass, sLPass, sLName, sRName)) {
-            return ("Welcome " + User.getsLoginName() + ", " + User.getsLoginLastName() + " it is great to see you again");
+        if (returnLoginMessage(User, sRPass, sLPass)) {
+            return ("Welcome " + sLName + ", " + User.getsLoginLastName() + " it is great to see you again");
         } else {
             return ("Username or password incorrect, please try again");
         }
-
     }
 
     public static String UserRegisterMessage(String CheckUsername) {
@@ -123,22 +121,12 @@ public class POELogin {
 
     }
 
-    public static boolean returnLoginMessage(POELogin User, String sRPass, String sLPass, String sLName, String sRName) {
-
-        // Get the appropraite methods and set them to the apporpriate variables so they can be compared
-        sLPass = sLoginPass;
-        sRPass = sRegisterPass;
-        sLName = sLoginUser;
-        sRName = sRegisterUser;
-
-        // If the login and register Usernames and Passwords matches then it will return the apporopriate message
-        if (sLPass.equals(sRPass) && sLName.equals(sRName)) {
+    public static boolean returnLoginMessage(POELogin User, String sRPass, String sLPass) {
+        if (sLPass.equals(sRPass) && User.getsLoginUser().equals(User.getsRegisterUser())) {
             return true;
-
         } else {
             return false;
         }
-
     }
 
     // Getter for login password
