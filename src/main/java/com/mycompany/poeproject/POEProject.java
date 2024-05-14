@@ -33,7 +33,7 @@ public class POEProject {
         //While loop that will continue displaying options to the user unless the user chooses option 3 (which is to quit)
         while (bPass = true) {
 
-            System.out.println("Please select an option:");
+            System.out.println("Please select an option:");  
             System.out.println("1. Create an account");
             System.out.println("2. Login");
             System.out.println("3. Quit");

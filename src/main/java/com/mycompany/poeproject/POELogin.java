@@ -17,14 +17,19 @@ public class POELogin {
     private String sLoginLastName; //Login Last Name
     private String sRegisterPass; // Register User Password
     private String sRegisterUser; // Register User Name
-    private boolean bLoginConfirm = false; //Boolean to check if the user is logged in
+    
+    
+    
+    //Reference 
+    // According to baeldung(2024) the .charAt() method returns the character at a given position in a string
+    // I used the .charAt(0) method to get the current character of the string and compare it to a string to see if the username had a underscore
 
     public static boolean checkUserName(String username) { // This method checks that the username meets the reuirements
         int underscoreCount = 0;
         if (username.length() > 5) { //Checks if the username entered is greater than 5 characters
             return false; // If the username exceeds 5 characters it will return false
         }
-        for (int i = 0; i < username.length(); i++) { //Beginning of forloop
+        for (int i = 0; i < username.length(); i++) { //Beginning of forloop 
             if (username.charAt(i) == '_') { //Checks to see if the current character of the username is a underscore
                 underscoreCount++;        //Increments underscore if there is one
             }
@@ -32,22 +37,35 @@ public class POELogin {
         return underscoreCount == 1; // If underscore account is 1 then checkUserName will return true else it will return false
 
     }
-    // Follwing method enssures that the password entered meets all the requirements
 
-    public static boolean checkPasswordComplexity(String Password) {
+    // Reference 
+    // According to ashmitraj(2020) .isDigit(ch) is a method in Java that can dertermine whether a single charcter is a number or not
+    // I used the .isDigit method to check if the password contained a number in it
+    
+    //According to Kai Yuan(2024) .isUppercase is a method in Java that can determine whether a single character is a capital letter or not
+    // I used the .isDigit method to check if the password contained a capital ltter in it
+    
+    // According to GeeksforGeeks(2023) .indexOf() method returns the position of the first occurrence of the specified character given to it
+    // I used the .indexOf() method to see if the password contained any special characters in it
+    
+    // According to baeldung(2024) the .charAt() method returns the character at a given position in a string
+    // I used the .charAt(0) method to get the current character of the string and compare it to avarious strings to see if the password meets the requirements
+    
+    // Follwing method enssures that the password entered meets all the requirements
+    public static boolean checkPasswordComplexity(String Password) { //Checks if the password has all the requirements
 
         char ch;
         boolean bCapital = false; // To check if there is a capital letter
         boolean bNumber = false; // To check if there is a number
 
         //String of the special characters that are used to see if the password contaiains any speical characters
-        String specialCharacters = "!@#$%^&*()_+{}\":?><,./;'[]\\-=";
+        String specialCharacters = "!@#$%^&*()_+{}\":?><,./;'[]\\-="; //Reference this 
 
         for (int i = 0; i < Password.length(); i++) { // Beginning that goes through each character of the password and checks if the criteria is matched
             ch = Password.charAt(i); // Setting the current character of the password to the char "ch" so that it can be checked 
 
             // Check if the current character is a special character
-            if (specialCharacters.indexOf(ch) != -1) { //Checks to see if the current character is a string or not
+            if (specialCharacters.indexOf(ch) != -1) { //Checks to see if the current character is a special character or not
 
                 //Checks to see if the current character is a digit
             } else if (Character.isDigit(ch)) {
@@ -101,6 +119,7 @@ public class POELogin {
         }
     }
 
+    // Displays a message for the user so that the user knows they entered their username in the correct format
     public static String UserRegisterMessage(String CheckUsername) {
 
         if (POELogin.checkUserName(CheckUsername)) {
@@ -111,6 +130,7 @@ public class POELogin {
 
     }
 
+    // Displays a message for the user so that the user knows they entered their password in the correct format
     public static String UserRegisterMessagePassword(String CheckPassword) {
 
         if (POELogin.checkPasswordComplexity(CheckPassword)) {
@@ -121,6 +141,7 @@ public class POELogin {
 
     }
 
+    // Detects whether the user is logged in or not
     public static boolean returnLoginMessage(POELogin User, String sRPass, String sLPass) {
         if (sLPass.equals(sRPass) && User.getsLoginUser().equals(User.getsRegisterUser())) {
             return true;
@@ -190,3 +211,15 @@ public class POELogin {
     }
 
 }
+
+/* References:
+
+  ashmitraj. 2020. Character isDigit() method in Java with examples.(Version 1.0-SNAPSHOT) (Source code). https://www.geeksforgeeks.org/character-isdigit-method-in-java-with-examples/. (Accessed 9 April 2024 )
+
+  Kai Yuan. 2024. Check if a String Is All Uppercase or Lowercase in Java.(Version 1.0-SNAPSHOT) (Source code). https://www.baeldung.com/java-check-string-uppercase-lowercase#:~:text=isLowerCase()%20and%20Character.,is%20a%20lower%2Fuppercase%20character.. (Accessed 9 April 2024)
+
+  GeeksforGeeks. 2023. In Java, String indexOf() method returns the position of the first occurrence of the specified character or string in a specified string.(Version 1.0-SNAPSHOT) (Source code). https://www.geeksforgeeks.org/java-string-indexof/ (Accessed 9 April 2024)
+
+  baeldung. 2024. Getting a Character by Index From a String in Java.(Version 1.0-SNAPSHOT) (Source code). https://www.baeldung.com/java-character-at-position (Accessed 9 April 2024)
+
+ */
