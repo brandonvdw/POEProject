@@ -112,20 +112,25 @@ public class POEProject {
                             if (!Tasks.checkDescription()) {
                                 JOptionPane.showInputDialog(f, "Please enter a task description that is less than 50 characters");
                             } else {
+                                
+                                Tasks.returnTotalHours();
 
                                 Tasks.setDevName(JOptionPane.showInputDialog(f, "Please enter the first name of the developer"));
                                 Tasks.setDevLastName(JOptionPane.showInputDialog(f, "Please enter the last name of the developer"));
 
                                 Tasks.setTaskDuration(Integer.parseInt(JOptionPane.showInputDialog(f, "Please enter the duration of the task in hours")));
 
-                              Tasks.setTaskStat(JOptionPane.showInputDialog(f, "Select the status of the task: \n"
-                            + "1. To Do \n2. Done \n3. Doing")); 
-                               
-                               
-                                JOptionPane.showInputDialog(f,Tasks.printTaskDetails());
+                                Tasks.setTaskStat(JOptionPane.showInputDialog(f, "Select the status of the task: \n"
+                                        + "1. To Do \n2. Done \n3. Doing"));
+
+                                JOptionPane.showMessageDialog(f, Tasks.printTaskDetails());
                             }
+                                
 
                         }
+                        JOptionPane.showMessageDialog(f,"The total amount of hours of all tasks: " + Tasks.returnTotalHours());
+                        
+                        
 
                     } else if (userSelection == 2) {
 
