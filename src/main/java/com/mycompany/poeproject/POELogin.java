@@ -208,11 +208,11 @@ public class POELogin {
     public String getsRegisterUser() {
         return sRegisterUser;
     }
-    
- public void setNumberOfTasks(Integer numTasks) {
-        this.numTasks = numTasks;
-    }
 }
+    
+
+
+
 
 
 
