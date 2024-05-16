@@ -17,13 +17,12 @@ public class POELogin {
     private String sLoginLastName; //Login Last Name
     private String sRegisterPass; // Register User Password
     private String sRegisterUser; // Register User Name
-    
-    
-    
+
+
+
     //Reference 
     // According to baeldung(2024) the .charAt() method returns the character at a given position in a string
     // I used the .charAt(0) method to get the current character of the string and compare it to a string to see if the username had a underscore
-
     public static boolean checkUserName(String username) { // This method checks that the username meets the reuirements
         int underscoreCount = 0;
         if (username.length() > 5) { //Checks if the username entered is greater than 5 characters
@@ -41,16 +40,12 @@ public class POELogin {
     // Reference 
     // According to ashmitraj(2020) .isDigit(ch) is a method in Java that can dertermine whether a single charcter is a number or not
     // I used the .isDigit method to check if the password contained a number in it
-    
     //According to Kai Yuan(2024) .isUppercase is a method in Java that can determine whether a single character is a capital letter or not
     // I used the .isDigit method to check if the password contained a capital ltter in it
-    
     // According to GeeksforGeeks(2023) .indexOf() method returns the position of the first occurrence of the specified character given to it
     // I used the .indexOf() method to see if the password contained any special characters in it
-    
     // According to baeldung(2024) the .charAt() method returns the character at a given position in a string
     // I used the .charAt(0) method to get the current character of the string and compare it to avarious strings to see if the password meets the requirements
-    
     // Follwing method enssures that the password entered meets all the requirements
     public static boolean checkPasswordComplexity(String Password) { //Checks if the password has all the requirements
 

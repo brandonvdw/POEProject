@@ -5,9 +5,12 @@ package com.mycompany.poeproject;
 
 /**
  *
+ *
  * @author brand
  */
 import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class POEProject {
 
@@ -18,6 +21,9 @@ public class POEProject {
 
         // Creating an instance of Scanner to take user input
         Scanner scanner = new Scanner(System.in);
+
+        JFrame f;
+        f = new JFrame();
 
         boolean bPass; //Flag to control the loop
 
@@ -33,7 +39,7 @@ public class POEProject {
         //While loop that will continue displaying options to the user unless the user chooses option 3 (which is to quit)
         while (bPass = true) {
 
-            System.out.println("Please select an option:");  
+            System.out.println("Please select an option:");
             System.out.println("1. Create an account");
             System.out.println("2. Login");
             System.out.println("3. Quit");
@@ -85,6 +91,21 @@ public class POEProject {
                 //Method that returns the login status and tells the user if they have entered their inforation correctly or not
                 System.out.println(POELogin.returnLoginStatus(User, sPassword, sLoginPassMain, sLoginUserMain, sUsername));
 
+                while (User.returnLoginMessage(User, sPassword, sLoginPassMain)) {
+                    String userInput = JOptionPane.showInputDialog(f, "Welcome to EasyKanban \nPlease select what you would like to do: \n"
+                            + "1. Add tasks \n2.Show report \n 3.Quit");
+
+                    if (userInput == "1") {
+
+                    } else if (userInput == "2") {
+
+                        
+                    } else if (userInput == "3") {
+
+                    }
+
+                }
+
             } else if (iChoice == 3) {
                 //Exiting the loop if yhe user chooses option 3 ("Quit")
                 break;
@@ -94,6 +115,7 @@ public class POEProject {
             }
 
         }
+
     }
 
 }
