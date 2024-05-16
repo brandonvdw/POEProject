@@ -92,16 +92,20 @@ public class POEProject {
                 System.out.println(POELogin.returnLoginStatus(User, sPassword, sLoginPassMain, sLoginUserMain, sUsername));
 
                 while (User.returnLoginMessage(User, sPassword, sLoginPassMain)) {
-                    String userInput = JOptionPane.showInputDialog(f, "Welcome to EasyKanban \nPlease select what you would like to do: \n"
-                            + "1. Add tasks \n2.Show report \n 3.Quit");
+                    Integer userSelection = Integer.parseInt(JOptionPane.showInputDialog(f, "Welcome to EasyKanban \nPlease select what you would like to do: \n"
+                            + "1. Add tasks \n2.Show report \n3.Quit"));
 
-                    if (userInput == "1") {
+                    if (userSelection == 1) {
 
-                    } else if (userInput == "2") {
+                        Integer tasks = Integer.parseInt(JOptionPane.showInputDialog(f, "How many tasks would you like to add?"));
 
-                        
-                    } else if (userInput == "3") {
+                    } else if (userSelection == 2) {
 
+                        JOptionPane.showMessageDialog(f, "Coming soon", "Alert", JOptionPane.WARNING_MESSAGE);
+
+                    } else if (userSelection == 3) {
+
+                        break;
                     }
 
                 }

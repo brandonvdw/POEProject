@@ -4,6 +4,8 @@
  */
 package com.mycompany.poeproject;
 
+
+
 /**
  *
  * @author brand
@@ -18,6 +20,8 @@ public class POELogin {
     private String sRegisterPass; // Register User Password
     private String sRegisterUser; // Register User Name
 
+    
+    private int numTasks; //Number of tasks the user wants to enter 
 
 
     //Reference 
@@ -204,8 +208,13 @@ public class POELogin {
     public String getsRegisterUser() {
         return sRegisterUser;
     }
-
+    
+ public void setNumberOfTasks(Integer numTasks) {
+        this.numTasks = numTasks;
+    }
 }
+
+
 
 /* References:
 
