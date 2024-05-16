@@ -21,7 +21,7 @@ public class POELogin {
     private String sRegisterUser; // Register User Name
 
     
-    private int numTasks; //Number of tasks the user wants to enter 
+    
 
 
     //Reference 
@@ -209,13 +209,7 @@ public class POELogin {
         return sRegisterUser;
     }
 }
-    
-
-
-
-
-
-
+ 
 /* References:
 
   ashmitraj. 2020. Character isDigit() method in Java with examples.(Version 1.0-SNAPSHOT) (Source code). https://www.geeksforgeeks.org/character-isdigit-method-in-java-with-examples/. (Accessed 9 April 2024 )
