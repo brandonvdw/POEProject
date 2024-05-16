@@ -5,7 +5,6 @@
 package POEJUnitTest;
 
 import com.mycompany.poeproject.TaskClass;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
