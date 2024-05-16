@@ -10,16 +10,16 @@ package com.mycompany.poeproject;
  */
 public class TaskClass {
 
-    private int numTasks; //Number of tasks the user wants to enter
-    private String taskName;
-    private String taskDescription;
-    private String devName;
-    private String devLastName;
-    private double taskDuration;
-    private double totalHours;
-     private double hours = 0;
+    public int numTasks; //Number of tasks the user wants to enter
+    public String taskName;
+    public String taskDescription;
+    public String devName;
+    public String devLastName;
+    public double taskDuration;
+    public double totalHours;
+    public double hours = 0;
     
-    private String taskStat;
+    public String taskStat;
     
    
        
