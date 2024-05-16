@@ -15,20 +15,20 @@ public class TaskClass {
     private String taskDescription;
     private String devName;
     private String devLastName;
-    private int taskDuration;
-    private int totalHours;
-     private int hours = 0;
+    private double taskDuration;
+    private double totalHours;
+     private double hours = 0;
     
     private String taskStat;
     
    
        
 
-    public void setTotalHours(int totalHours) {
+    public void setTotalHours(double totalHours) {
         this.totalHours = totalHours + taskDuration;
     }
 
-    public int getTaskDuration() {
+    public double getTaskDuration() {
         return taskDuration;
     }
    
@@ -49,7 +49,7 @@ public class TaskClass {
         this.devLastName = devLastName;
     }
 
-    public void setTaskDuration(int taskDuration) {
+    public void setTaskDuration(double taskDuration) {
         this.taskDuration = taskDuration;
     }
 
@@ -70,7 +70,7 @@ public class TaskClass {
 
     }
 
-    public int returnTotalHours() {
+    public double returnTotalHours() {
         
 
         hours = hours + getTaskDuration();

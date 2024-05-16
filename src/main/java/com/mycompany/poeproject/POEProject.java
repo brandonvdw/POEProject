@@ -118,7 +118,7 @@ public class POEProject {
                                 Tasks.setDevName(JOptionPane.showInputDialog(f, "Please enter the first name of the developer"));
                                 Tasks.setDevLastName(JOptionPane.showInputDialog(f, "Please enter the last name of the developer"));
 
-                                Tasks.setTaskDuration(Integer.parseInt(JOptionPane.showInputDialog(f, "Please enter the duration of the task in hours")));
+                                Tasks.setTaskDuration(Double.parseDouble(JOptionPane.showInputDialog(f, "Please enter the duration of the task in hours")));
 
                                 Tasks.setTaskStat(JOptionPane.showInputDialog(f, "Select the status of the task: \n"
                                         + "1. To Do \n2. Done \n3. Doing"));
