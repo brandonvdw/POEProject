@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="POEJUnitTest.PART2UnitTest" time="0.056" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="POEJUnitTest.PART2UnitTest" time="0.046" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,9 +15,9 @@
     <property name="user.country" value="ZA"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\brand\AppData\Local\Temp\surefire10199018737297142476\surefirebooter-20240516190007676_3.jar C:\Users\brand\AppData\Local\Temp\surefire10199018737297142476 2024-05-16T19-00-07_582-jvmRun1 surefire-20240516190007676_1tmp surefire_0-20240516190007676_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\brand\AppData\Local\Temp\surefire8799696570674302473\surefirebooter-20240517112038696_3.jar C:\Users\brand\AppData\Local\Temp\surefire8799696570674302473 2024-05-17T11-20-38_579-jvmRun1 surefire-20240517112038696_1tmp surefire_0-20240517112038696_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="POEJUnitTest.PART2UnitTest#testCreateTaskID"/>
+    <property name="test" value="POEJUnitTest.PART2UnitTest"/>
     <property name="surefire.test.class.path" value="C:\Users\brand\Documents\NetBeansProjects\POEProject\target\test-classes;C:\Users\brand\Documents\NetBeansProjects\POEProject\target\classes;C:\Users\brand\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\brand\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\brand\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\brand\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\brand\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\brand\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\brand\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\brand"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\brand\AppData\Local\Temp\surefire10199018737297142476\surefirebooter-20240516190007676_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\brand\AppData\Local\Temp\surefire8799696570674302473\surefirebooter-20240517112038696_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.2+13-LTS-58"/>
@@ -60,5 +60,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testCreateTaskID" classname="POEJUnitTest.PART2UnitTest" time="0.031"/>
+  <testcase name="testInvalidTaskDesc" classname="POEJUnitTest.PART2UnitTest" time="0.021"/>
+  <testcase name="testCreateTaskID" classname="POEJUnitTest.PART2UnitTest" time="0.007"/>
+  <testcase name="testTotalHours" classname="POEJUnitTest.PART2UnitTest" time="0.0"/>
+  <testcase name="testTaskDesc" classname="POEJUnitTest.PART2UnitTest" time="0.001"/>
+  <testcase name="testValidTaskDesc" classname="POEJUnitTest.PART2UnitTest" time="0.0"/>
 </testsuite>

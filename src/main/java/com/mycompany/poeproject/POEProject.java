@@ -25,6 +25,7 @@ public class POEProject {
         // Creating an instance of Scanner to take user input
         Scanner scanner = new Scanner(System.in);
 
+        //Creating a new JFrame and initialising it
         JFrame f;
         f = new JFrame();
 
@@ -94,54 +95,68 @@ public class POEProject {
                 //Method that returns the login status and tells the user if they have entered their inforation correctly or not
                 System.out.println(POELogin.returnLoginStatus(User, sPassword, sLoginPassMain, sLoginUserMain, sUsername));
 
-                
+                // The following detects if the user has logged in and then runs a while loop only if the user has logged in
                 while (User.returnLoginMessage(User, sPassword, sLoginPassMain)) {
+
+                    // Prompts the user with 3 options using a JOptionPane (Note JOptionPane is used from now on)
                     Integer userSelection = Integer.parseInt(JOptionPane.showInputDialog(f, "Welcome to EasyKanban \nPlease select what you would like to do: \n"
                             + "1. Add tasks \n2.Show report \n3.Quit"));
 
-                    if (userSelection == 1) {
+                    if (userSelection == 1) { // If user selects option 1 (Add tasks)
 
+                        // Prompt the user to enter the amount of tasks they want to add
                         Integer tasks = Integer.parseInt(JOptionPane.showInputDialog(f, "How many tasks would you like to add?"));
 
+                        // Set the number of tasks in the Tasks class so that it can be tracked later
                         Tasks.setNumberOfTasks(tasks);
 
+                        // Loop through the number of tasks to gather details for each task
                         for (int i = 0; i < tasks; i++) {
 
+                            // Prompt user to enter the name of the task
                             Tasks.setTaskName(JOptionPane.showInputDialog(f, "Please enter the name of the task: " + i));
+                            
+                            // Prompt user to enter the description of the task
                             Tasks.setTaskDescription(JOptionPane.showInputDialog(f, "Enter the task description"));
 
+                            // Check if the task description is valid (has to be less than 50 characters)
                             if (!Tasks.checkDescription()) {
+                                
+                                // If not valid, it will prompt user to enter a valid task description
                                 JOptionPane.showInputDialog(f, "Please enter a task description that is less than 50 characters");
                             } else {
-                                
+                                // If valid, proceed to gather more task details
+
+                                // Called the return total hours method before displaying it at the end again so that memory doesn't reset it
                                 Tasks.returnTotalHours();
 
+                                // Prompt and set developer's full name
                                 Tasks.setDevName(JOptionPane.showInputDialog(f, "Please enter the full name of the developer"));
-                                
 
+                                // Prompt and set duration of the task in hours
                                 Tasks.setTaskDuration(Double.parseDouble(JOptionPane.showInputDialog(f, "Please enter the duration of the task in hours")));
 
+                                // Prompt and set the status of the task
                                 Tasks.setTaskStat(JOptionPane.showInputDialog(f, "Select the status of the task: \n"
                                         + "1. To Do \n2. Done \n3. Doing"));
 
+                                // Call the method to display the task details using a message dialog
                                 JOptionPane.showMessageDialog(f, Tasks.printTaskDetails());
                             }
-                                
-
                         }
-                        JOptionPane.showMessageDialog(f,"The total amount of hours of all tasks: " + Tasks.returnTotalHours());
-                        
-                        
+                        // After adding all tasks, display the total amount of hours for all tasks by calling the returnTotalHours method
+                        JOptionPane.showMessageDialog(f, "The total amount of hours of all tasks: " + Tasks.returnTotalHours());
 
-                    } else if (userSelection == 2) {
+                    } else if (userSelection == 2) { // If user selects option 2 (Show report)
 
+                        // Display a "Coming soon" message
                         JOptionPane.showMessageDialog(f, "Coming soon", "Alert", JOptionPane.WARNING_MESSAGE);
 
-                    } else if (userSelection == 3) {
+                    } else if (userSelection == 3) { // If user selects option 3 (Quit)
 
+                        // Exit the while loop, ending the program
                         break;
                     }
-
                 }
 
             } else if (iChoice == 3) {
@@ -153,7 +168,6 @@ public class POEProject {
             }
 
         }
-        
 
     }
 
