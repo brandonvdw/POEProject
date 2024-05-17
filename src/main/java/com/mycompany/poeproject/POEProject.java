@@ -94,6 +94,7 @@ public class POEProject {
                 //Method that returns the login status and tells the user if they have entered their inforation correctly or not
                 System.out.println(POELogin.returnLoginStatus(User, sPassword, sLoginPassMain, sLoginUserMain, sUsername));
 
+                
                 while (User.returnLoginMessage(User, sPassword, sLoginPassMain)) {
                     Integer userSelection = Integer.parseInt(JOptionPane.showInputDialog(f, "Welcome to EasyKanban \nPlease select what you would like to do: \n"
                             + "1. Add tasks \n2.Show report \n3.Quit"));
@@ -115,8 +116,8 @@ public class POEProject {
                                 
                                 Tasks.returnTotalHours();
 
-                                Tasks.setDevName(JOptionPane.showInputDialog(f, "Please enter the first name of the developer"));
-                                Tasks.setDevLastName(JOptionPane.showInputDialog(f, "Please enter the last name of the developer"));
+                                Tasks.setDevName(JOptionPane.showInputDialog(f, "Please enter the full name of the developer"));
+                                
 
                                 Tasks.setTaskDuration(Double.parseDouble(JOptionPane.showInputDialog(f, "Please enter the duration of the task in hours")));
 

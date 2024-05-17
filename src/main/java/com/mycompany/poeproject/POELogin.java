@@ -20,10 +20,6 @@ public class POELogin {
     private String sRegisterPass; // Register User Password
     private String sRegisterUser; // Register User Name
 
-    
-    
-
-
     //Reference 
     // According to baeldung(2024) the .charAt() method returns the character at a given position in a string
     // I used the .charAt(0) method to get the current character of the string and compare it to a string to see if the username had a underscore

@@ -14,15 +14,11 @@ public class TaskClass {
     public String taskName;
     public String taskDescription;
     public String devName;
-    public String devLastName;
     public double taskDuration;
     public double totalHours;
     public double hours = 0;
-    
     public String taskStat;
-    
-   
-       
+
 
     public void setTotalHours(double totalHours) {
         this.totalHours = totalHours + taskDuration;
@@ -45,9 +41,6 @@ public class TaskClass {
         this.devName = devName;
     }
 
-    public void setDevLastName(String devLastName) {
-        this.devLastName = devLastName;
-    }
 
     public void setTaskDuration(double taskDuration) {
         this.taskDuration = taskDuration;
@@ -110,9 +103,9 @@ public class TaskClass {
 
         String outputFinal;
 
-        outputFinal = "Task status: " + taskStat + "\nDeveloper details: " + devName + " " + devLastName + "\nTask Number: " + numTasks + "\nTask Name: " + taskName
+        outputFinal = "Task status: " + taskStat + "\nDeveloper details: " + devName +  "\nTask Number: " + numTasks + "\nTask Name: " + taskName
                 + "\nTask Description: " + taskDescription
-                + "\nTask ID: " + createTaskID() + "\nTask Description: " + taskDescription + "\nTask Duration: " + getTaskDuration();
+                + "\nTask ID: " + createTaskID() + "\nTask Duration: " + getTaskDuration() + " hours";
 
         return outputFinal;
     }
