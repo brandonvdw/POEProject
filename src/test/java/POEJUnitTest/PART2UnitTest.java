@@ -18,6 +18,7 @@ public class PART2UnitTest {
 
     }
 
+    // Test to check if the task description is valid
     @Test
     public void testTaskDesc() {
 
@@ -29,6 +30,7 @@ public class PART2UnitTest {
 
     }
 
+    // Test to check if the task description is valid
     @Test
     public void testValidTaskDesc() {
 
@@ -40,6 +42,7 @@ public class PART2UnitTest {
 
     }
 
+    // Test to check if the task description is invalid
     @Test
     public void testInvalidTaskDesc() {
 
@@ -51,6 +54,7 @@ public class PART2UnitTest {
 
     }
 
+    // Test to verify the creation of a Task ID
     @Test
     public void testCreateTaskID() {
         TaskClass Task = new TaskClass();
@@ -65,6 +69,7 @@ public class PART2UnitTest {
 
     }
 
+    // Test to check the total hours of a task
     @Test
     public void testTotalHours() {
         TaskClass Task = new TaskClass();
@@ -76,6 +81,8 @@ public class PART2UnitTest {
 
     }
 
+    // Test to check the total hours of a task with a different duration
+    @Test
     public void testMultipleTotalHours2() {
         TaskClass Task = new TaskClass();
         Task.taskDuration = 10;

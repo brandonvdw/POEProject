@@ -37,15 +37,22 @@ public class POELogin {
 
     }
 
-    // Reference 
-    // According to ashmitraj(2020) .isDigit(ch) is a method in Java that can dertermine whether a single charcter is a number or not
-    // I used the .isDigit method to check if the password contained a number in it
-    //According to Kai Yuan(2024) .isUppercase is a method in Java that can determine whether a single character is a capital letter or not
-    // I used the .isDigit method to check if the password contained a capital ltter in it
-    // According to GeeksforGeeks(2023) .indexOf() method returns the position of the first occurrence of the specified character given to it
-    // I used the .indexOf() method to see if the password contained any special characters in it
-    // According to baeldung(2024) the .charAt() method returns the character at a given position in a string
-    // I used the .charAt(0) method to get the current character of the string and compare it to avarious strings to see if the password meets the requirements
+    /* In-text References:
+    
+     1.)According to ashmitraj(2020) .isDigit(ch) is a method in Java that can dertermine whether a single charcter is a number or not
+     I used the .isDigit method to check if the password contained a number in it
+    
+     2.)According to Kai Yuan(2024) .isUppercase is a method in Java that can determine whether a single character is a capital letter or not
+     I used the .isDigit method to check if the password contained a capital ltter in it
+    
+     3.)According to GeeksforGeeks(2023) .indexOf() method returns the position of the first occurrence of the specified character given to it
+     I used the .indexOf() method to see if the password contained any special characters in it
+    
+     4.)According to baeldung(2024) the .charAt() method returns the character at a given position in a string
+     I used the .charAt(0) method to get the current character of the string and compare it to avarious strings to see if the password meets the requirements
+    
+    */
+    
     // Follwing method enssures that the password entered meets all the requirements
     public static boolean checkPasswordComplexity(String Password) { //Checks if the password has all the requirements
 
@@ -208,12 +215,12 @@ public class POELogin {
  
 /* References:
 
-  ashmitraj. 2020. Character isDigit() method in Java with examples.(Version 1.0-SNAPSHOT) (Source code). https://www.geeksforgeeks.org/character-isdigit-method-in-java-with-examples/. (Accessed 9 April 2024 )
+  ashmitraj. 2020. Character isDigit() method in Java with examples.(Version 1.0-SNAPSHOT) [Source code]. https://www.geeksforgeeks.org/character-isdigit-method-in-java-with-examples/. (Accessed 9 April 2024)
 
-  Kai Yuan. 2024. Check if a String Is All Uppercase or Lowercase in Java.(Version 1.0-SNAPSHOT) (Source code). https://www.baeldung.com/java-check-string-uppercase-lowercase#:~:text=isLowerCase()%20and%20Character.,is%20a%20lower%2Fuppercase%20character.. (Accessed 9 April 2024)
+  baeldung. 2024. Getting a Character by Index From a String in Java.(Version 1.0-SNAPSHOT) [Source code]. https://www.baeldung.com/java-character-at-position (Accessed 9 April 2024)
 
-  GeeksforGeeks. 2023. In Java, String indexOf() method returns the position of the first occurrence of the specified character or string in a specified string.(Version 1.0-SNAPSHOT) (Source code). https://www.geeksforgeeks.org/java-string-indexof/ (Accessed 9 April 2024)
+  GeeksforGeeks. 2023. In Java, String indexOf() method returns the position of the first occurrence of the specified character or string in a specified string.(Version 1.0-SNAPSHOT) [Source code]. https://www.geeksforgeeks.org/java-string-indexof/ (Accessed 9 April 2024)
 
-  baeldung. 2024. Getting a Character by Index From a String in Java.(Version 1.0-SNAPSHOT) (Source code). https://www.baeldung.com/java-character-at-position (Accessed 9 April 2024)
+  Kai Yuan. 2024. Check if a String Is All Uppercase or Lowercase in Java.(Version 1.0-SNAPSHOT) [Source code]. https://www.baeldung.com/java-check-string-uppercase-lowercase#:~:text=isLowerCase()%20and%20Character.,is%20a%20lower%2Fuppercase%20character.. (Accessed 9 April 2024)
 
  */

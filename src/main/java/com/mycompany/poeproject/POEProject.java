@@ -94,6 +94,22 @@ public class POEProject {
 
                 //Method that returns the login status and tells the user if they have entered their inforation correctly or not
                 System.out.println(POELogin.returnLoginStatus(User, sPassword, sLoginPassMain, sLoginUserMain, sUsername));
+                
+                /*
+                In text references: 
+                
+                1.) According to chinmaya121221(2023) the JOptionPane is a part of the Java Swing library. It helps create visual dialog boxes such as message dialogs, conformation dialogs, input dialogs, and options dialog.
+                I used the JOptionPane to prompt the user for multiple inputs via a dialog box and also display information to the user via the show message dialog interface
+                
+                2.) According to Chinmoy (2019)a forloop in Java is used when actions or statements need to be executed repeated over and over again.
+                I used the forloop to loop through set code based on how many tasks the user chose to enter so that I dont have to repeat that code 
+                
+                3.)According to Chinmoy (2019) a while loop is a statement that will repeat lines of code unless a boolean condition is met. 
+                I used the while loop to keep prompting the user the 3 options they get only when they have successfully logged in (keep looping while they're logged in)
+                
+                4.) According to Rajput-Ji (2018) in order to convert a string to a double, the "Double.parseDouble(str)" function must be used to convert the string type to a double data type
+                I used the .parseDouble function to convert the hours that the user entered (which are a string) to a double which can be used later for mathematical calculations 
+                */
 
                 // The following detects if the user has logged in and then runs a while loop only if the user has logged in
                 while (User.returnLoginMessage(User, sPassword, sLoginPassMain)) {
@@ -172,3 +188,16 @@ public class POEProject {
     }
 
 }
+
+
+/* References:
+
+chinmaya121221. 2023. Java JOptionPane. (Version 1.0-SNAPSHOT). [Source code]. https://www.geeksforgeeks.org/java-joptionpane/ . (Accessed 16 May 2024) 
+
+Chinmoy. 2019. Java For loop with Examples. (Version 1.0-SNAPSHOT). [Source code]. https://www.geeksforgeeks.org/java-for-loop-with-examples/ (Accessed 16 May 2023).
+
+Chinmoy. 2019. Java while loop with Examples. (Version 1.0-SNAPSHOT). [Source code]. https://www.geeksforgeeks.org/java-while-loop-with-examples/ (Accessed 16 May 2023).
+
+Rajput-Ji. 2018. Convert String to Double in Java. (Version 1.0-SNAPSHOT). [Source code]. https://www.geeksforgeeks.org/convert-string-to-double-in-java/ (Accessed 16 May 2023).
+
+*/
