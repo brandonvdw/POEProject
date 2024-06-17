@@ -20,9 +20,6 @@ public class DisplayTaskReport {
     private static int taskCount = 0;
     private static int taskAmount = 0;
 
-    public static int getMAX_TASKS() {
-        return MAX_TASKS;
-    }
 
     // Method to add a task
     public static void addTasks(String taskName, String taskDescription, String devName, double taskDuration, String taskStat) {
