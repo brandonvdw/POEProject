@@ -21,6 +21,8 @@ public class POEProject {
 
         // Creating a instance of the TaskClass class
         TaskClass Tasks = new TaskClass();
+        
+        DisplayTaskReport Report = new DisplayTaskReport();
 
         // Creating an instance of Scanner to take user input
         Scanner scanner = new Scanner(System.in);
@@ -28,6 +30,8 @@ public class POEProject {
         //Creating a new JFrame and initialising it
         JFrame f;
         f = new JFrame();
+        
+       
 
         boolean bPass; //Flag to control the loop
 
@@ -39,6 +43,8 @@ public class POEProject {
 
         String sLoginUserMain = ""; //User's Login Username
         String sLoginPassMain = ""; //User's Login Password
+        
+        
 
         //While loop that will continue displaying options to the user unless the user chooses option 3 (which is to quit)
         while (bPass = true) {
@@ -112,6 +118,7 @@ public class POEProject {
                 */
 
                 // The following detects if the user has logged in and then runs a while loop only if the user has logged in
+                
                 while (User.returnLoginMessage(User, sPassword, sLoginPassMain)) {
 
                     // Prompts the user with 3 options using a JOptionPane (Note JOptionPane is used from now on)
@@ -127,6 +134,8 @@ public class POEProject {
                         Tasks.setNumberOfTasks(tasks);
 
                         // Loop through the number of tasks to gather details for each task
+                        
+                        
                         for (int i = 0; i < tasks; i++) {
 
                             // Prompt user to enter the name of the task
@@ -159,6 +168,10 @@ public class POEProject {
                                 // Call the method to display the task details using a message dialog
                                 JOptionPane.showMessageDialog(f, Tasks.printTaskDetails());
                             }
+                            
+                           Report.setCurrentPosition(i); // Setting the current position of the loop to populate the arrays in teh DisplayTaskReport Class
+                            
+                            
                         }
                         // After adding all tasks, display the total amount of hours for all tasks by calling the returnTotalHours method
                         JOptionPane.showMessageDialog(f, "The total amount of hours of all tasks: " + Tasks.returnTotalHours());
@@ -186,8 +199,11 @@ public class POEProject {
         }
 
     }
+    
+    
 
 }
+
 
 
 /* References:

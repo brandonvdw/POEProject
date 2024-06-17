@@ -18,6 +18,7 @@ public class TaskClass {
     public double totalHours; // Total hours of all tasks combined
     public double hours = 0; // Accumulated hours
     public String taskStat; // Status of the task
+    public String taskID; //Task ID
 
 // Setter for totalHours, adds the task duration to the total hours
     public void setTotalHours(double totalHours) {
@@ -58,6 +59,8 @@ public class TaskClass {
     public void setNumberOfTasks(Integer numTasks) {
         this.numTasks = numTasks;
     }
+    
+    
 
 // Checks if the task description length is 50 characters or less
     public boolean checkDescription() {
@@ -67,6 +70,42 @@ public class TaskClass {
             return false;
         }
     }
+    
+    ////////////////////////////////////////////////
+
+    public int getNumTasks() {
+        return numTasks;
+    }
+
+    public String getTaskName() {
+        return taskName;
+    }
+
+    public String getTaskDescription() {
+        return taskDescription;
+    }
+
+    public String getDevName() {
+        return devName;
+    }
+
+    public double getTotalHours() {
+        return totalHours;
+    }
+
+    public double getHours() {
+        return hours;
+    }
+
+    public String getTaskStat() {
+        return taskStat;
+    }
+
+    public String getTaskID() {
+        return taskID;
+    }
+    
+    
 
 // Returns the total accumulated hours after adding the duration (hours) of the current task
     public double returnTotalHours() {
@@ -114,10 +153,10 @@ public class TaskClass {
 
 // Creates a unique task ID based on task name, number of tasks, and developer's name
     public String createTaskID() {
-        String task;
+        
         //Creates the taskID by taking the first 2 characters of the Task Name, adding a semi-colon and then adding on the task number, adding on another semi-colon and then adding on the last three characters of teh developer name
-        task = taskName.substring(0, 2) + ":" + Integer.toString(numTasks) + ":" + devName.substring(devName.length() - 3);
-        return task.toUpperCase();
+        taskID = taskName.substring(0, 2) + ":" + Integer.toString(numTasks) + ":" + devName.substring(devName.length() - 3);
+        return taskID.toUpperCase();
     }
 
 // Prints the details of the task by printing them out on multiple lines
