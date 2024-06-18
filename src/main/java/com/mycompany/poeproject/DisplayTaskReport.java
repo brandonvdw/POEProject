@@ -50,8 +50,8 @@ public class DisplayTaskReport {
                     reportBuilder.append("\n");
                 }
                 reportBuilder.append("Developer: ").append(devNames[i])
-                        .append(", Task Name: ").append(taskNames[i])
-                        .append(", Task Duration: ").append(taskDurations[i]);
+                        .append("\nTask Name: ").append(taskNames[i])
+                        .append("\nTask Duration: ").append(taskDurations[i]);
             }
         }
 
@@ -59,10 +59,20 @@ public class DisplayTaskReport {
     }
 
     
-      public static String printTest() {
-          return taskStats[1];
- 
-          
-      }
+   public static String displayLongestDuration() {
+        double largestDuration = taskDurations[0];
+        String LongestDuration = "";
+       
+       for (int i = 1; i < taskDurations.length; i++) {
+            if (taskDurations[i] > largestDuration) {
+                largestDuration = taskDurations[i];
+                
+                LongestDuration = "Developer:" + devNames[i] + "\n Hours: " + largestDuration;
+            }
+        }
+       return LongestDuration;
+       
+   }   
+  
     
 }

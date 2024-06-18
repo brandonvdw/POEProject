@@ -185,7 +185,7 @@ public class POEProject {
 
                     } else if (userSelection == 2) { // If user selects option 2 (Show report)
 
-                    JOptionPane.showMessageDialog(f,Report.printDoneTasksReport());
+                   Report.displayLongestDuration();
                         
 
                     } else if (userSelection == 3) { // If user selects option 3 (Quit)
