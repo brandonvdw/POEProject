@@ -127,7 +127,7 @@ public class POEProject {
 
                         // Set the number of tasks in the Tasks class so that it can be tracked later
                         Tasks.setNumberOfTasks(tasks);
-                        
+
                         Report.setTaskAmount(tasks);
 
                         // Loop through the number of tasks to gather details for each task
@@ -138,6 +138,7 @@ public class POEProject {
                             String devName = "";
                             double taskDuration = 0;
                             String taskStat = "";
+                            String taskID = "";
 
                             // Prompt user to enter the name of the task and store in temporary variable
                             taskName = JOptionPane.showInputDialog(f, "Please enter the name of the task: " + i);
@@ -174,9 +175,8 @@ public class POEProject {
                                 JOptionPane.showMessageDialog(f, Tasks.printTaskDetails());
                             }
 
-                            Report.addTasks(taskName, taskDescription, devName, taskDuration, taskStat);
-
-                            
+                            Report.addTasks(taskName, devName, taskDuration, taskStat);
+                           
 
                         }
 
@@ -185,8 +185,8 @@ public class POEProject {
 
                     } else if (userSelection == 2) { // If user selects option 2 (Show report)
 
-                        // Display a "Coming soon" message
-                        JOptionPane.showMessageDialog(f, "Coming soon", "Alert", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(f,Report.printDoneTasksReport());
+                        
 
                     } else if (userSelection == 3) { // If user selects option 3 (Quit)
 
