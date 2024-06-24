@@ -176,7 +176,6 @@ public class POEProject {
                             }
 
                             Report.addTasks(taskName, devName, taskDuration, taskStat);
-                           
 
                         }
 
@@ -184,9 +183,51 @@ public class POEProject {
                         JOptionPane.showMessageDialog(f, "The total amount of hours of all tasks: " + Tasks.returnTotalHours());
 
                     } else if (userSelection == 2) { // If user selects option 2 (Show report)
-
-                   Report.displayLongestDuration();
+                        int choice = 0;
+                        String search;
+                        String dev;
+                        String delete;
+                        String finalReport;
                         
+                        
+
+                        choice = Integer.parseInt(JOptionPane.showInputDialog(f, "Please select from the following: "
+                                + "\n1. Display tasks that are done "
+                                + "\n2. Display longest task "
+                                + "\n3. Search for a task "
+                                + "\n4. Search for all tasks assigned to a developer "
+                                + "\n5. Delete a task "
+                                + "\n6. Display a report of all tasks"));
+
+                        if (choice == 1) {
+                          JOptionPane.showMessageDialog(f,Report.printDoneTasksReport());
+                          
+                        } else if (choice == 2) {
+                            
+                           JOptionPane.showMessageDialog(f,Report.displayLongestDuration());
+                            
+                        } else if (choice == 3) {
+                            
+                            search = JOptionPane.showInputDialog(f, "Please enter the name of the task");
+                            JOptionPane.showMessageDialog(f,Report.displayTaskName(search));
+                              
+                        } else if (choice == 4) {
+                        
+                            dev = JOptionPane.showInputDialog(f, "Please enter the name of the developer");
+                            JOptionPane.showMessageDialog(f,Report.displayTasksAssigned(dev));
+                            
+                        } else if (choice == 5) {
+                            
+                          delete = JOptionPane.showInputDialog(f, "Please enter the name of the task you would like to delete");
+                            JOptionPane.showMessageDialog(f,Report.deleteTasks(delete));
+                            
+                        } else if (choice == 6) {
+                             
+                            JOptionPane.showMessageDialog(f,Report.displayAllTasks());
+                            
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Invalid selection. Please enter a number between 1 and 6");
+                        }
 
                     } else if (userSelection == 3) { // If user selects option 3 (Quit)
 
