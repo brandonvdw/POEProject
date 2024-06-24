@@ -27,13 +27,13 @@ public class DisplayTaskReport {
             TaskClass Tasks = new TaskClass();
 
             taskNames[taskCount] = taskName;
-            taskIDs[taskCount] = Tasks.getTaskID();  
+            taskIDs[taskCount] = Tasks.getTaskID();
             devNames[taskCount] = devName;
             taskDurations[taskCount] = taskDuration;
             taskStats[taskCount] = taskStat;
             taskCount++;
         } else {
-            System.out.println("Maximum number of tasks reached.");
+            System.out.println("Maximum number of tasks reached");
         }
     }
 
@@ -58,21 +58,87 @@ public class DisplayTaskReport {
         return reportBuilder.toString();
     }
 
-    
-   public static String displayLongestDuration() {
+    public static String displayLongestDuration() {
         double largestDuration = taskDurations[0];
         String LongestDuration = "";
-       
-       for (int i = 1; i < taskDurations.length; i++) {
+
+        for (int i = 0; i < taskDurations.length; i++) {
             if (taskDurations[i] > largestDuration) {
                 largestDuration = taskDurations[i];
-                
+
                 LongestDuration = "Developer:" + devNames[i] + "\n Hours: " + largestDuration;
             }
         }
-       return LongestDuration;
-       
-   }   
-  
-    
+        return LongestDuration;
+
+    }
+
+    public static String displayTaskName(String taskName) {
+
+        String finalDisplay = "";
+
+        for (int i = 0; i < taskNames.length; i++) {
+            if (taskNames[i] == taskName) {
+
+                finalDisplay = "Task Name: " + taskNames[i] + "\n Developer: " + devNames[i] + "\n Task Status: " + taskStats[i];
+            }
+
+        }
+        return finalDisplay;
+
+    }
+
+    public static String displayTasksAssigned(String devName) {
+
+        StringBuilder reportBuilder = new StringBuilder();
+
+        for (int i = 0; i < devNames.length; i++) {
+            if ((devNames[i].equalsIgnoreCase(devName))) {
+                if (reportBuilder.length() > 0) {
+                    reportBuilder.append("\n");
+                }
+                reportBuilder
+                        .append("\nTask Name: ").append(taskNames[i])
+                        .append("\nTask Status: ").append(taskStats[i]);
+            }
+        }
+
+        return reportBuilder.toString();
+    }
+
+    public static String deleteTasks(String taskName) {
+
+        for (int i = 0; i < taskNames.length; i++) {
+
+            if ((taskNames[i].equalsIgnoreCase(taskName))) {
+                taskNames[i] = "";
+                taskIDs[i] = "";
+                devNames[i] = "";
+                taskDurations[i] = 0;
+                taskStats[i] = "";
+
+            }
+
+        }
+        return "Task has been deleted";
+    }
+
+    public static String displayAllTasks() {
+        StringBuilder reportBuilder = new StringBuilder();
+
+        for (int i = 0; i < taskCount; i++) {
+            if (taskNames[i] != null && !taskNames[i].isEmpty()) {
+                if (reportBuilder.length() > 0) {
+                    reportBuilder.append("\n\n");
+                }
+                reportBuilder.append("Task ID: ").append(taskIDs[i])
+                        .append("\nTask Name: ").append(taskNames[i])
+                        .append("\nDeveloper: ").append(devNames[i])
+                        .append("\nTask Duration: ").append(taskDurations[i])
+                        .append("\nTask Status: ").append(taskStats[i]);
+            }
+        }
+
+        return reportBuilder.toString();
+    }
 }
