@@ -22,7 +22,6 @@ public class DisplayTaskReport {
     private static String returnReport;
 
     // Method to add a task
-    // Method to add a task
     public static void addTasks(String taskName, String devName, double taskDuration, String taskStat) {
         if (taskCount < MAX_TASKS) {
             TaskClass task = new TaskClass();
