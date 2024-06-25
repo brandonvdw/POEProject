@@ -12,7 +12,7 @@ public class DisplayTaskReport {
 
     // Assuming a maximum number of tasks
     private static final int MAX_TASKS = 100;
-    private static String[] taskNames = new String[MAX_TASKS];
+    private static String[] taskNames = new String[MAX_TASKS]; 
     private static String[] taskIDs = new String[MAX_TASKS];
     private static String[] devNames = new String[MAX_TASKS];
     private static double[] taskDurations = new double[MAX_TASKS];
@@ -76,7 +76,7 @@ public class DisplayTaskReport {
             if (taskDurations[i] > largestDuration) {
                 largestDuration = taskDurations[i];
 
-                LongestDuration = "Developer:" + devNames[i] + "\n Hours: " + largestDuration;
+                LongestDuration = devNames[i] + ", " + largestDuration;
             }
         }
         return LongestDuration;
@@ -89,7 +89,6 @@ public class DisplayTaskReport {
             if (taskNames[i].equals(taskName)) {
                 return "Task Name: " + taskNames[i]
                         + "\nDeveloper: " + devNames[i]
-                        + "\nTask Duration: " + taskDurations[i]
                         + "\nTask Status: " + taskStats[i];
             }
         }
@@ -97,14 +96,14 @@ public class DisplayTaskReport {
     }
 
     public static String displayTasksAssigned(String devName) {
-        StringBuilder reportBuilder = new StringBuilder("Tasks assigned to " + devName + ":\n");
+        StringBuilder reportBuilder = new StringBuilder();
         devName = devName.trim().toLowerCase();
 
         for (int i = 0; i < taskCount; i++) {
             if (devNames[i].trim().equalsIgnoreCase(devName)) {
-                reportBuilder.append("Task: ").append(taskNames[i])
-                        .append("\nTask Status: ").append(taskStats[i])
-                        .append("\nTask Duration: ").append(taskDurations[i]).append("\n\n");
+                reportBuilder.append("Task Name: ").append(taskNames[i])
+                        .append("\nTask Developer: ").append(devNames[i])
+                        .append("\nTask Status: ").append(taskStats[i]);
             }
         }
 
@@ -146,4 +145,23 @@ public class DisplayTaskReport {
 
         return reportBuilder.toString();
     }
+
+
+    public static void resetTasks() { //Used for testing
+        taskCount = 0;
+        taskNames = new String[MAX_TASKS];
+        taskIDs = new String[MAX_TASKS];
+        devNames = new String[MAX_TASKS];
+        taskDurations = new double[MAX_TASKS];
+        taskStats = new String[MAX_TASKS];
+    }
+
+    public static String getDevNameAt(int index) { //Used for testing
+        if (index >= 0 && index < taskCount) {
+            return devNames[index];
+        }
+        return null;
+    }
+
+   
 }
