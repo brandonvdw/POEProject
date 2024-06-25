@@ -65,7 +65,7 @@ public class PART3UnitTest {
         DisplayTaskReport.addTasks("Create Login", "Mike Smith", 5.0, "3");
 
         // Expected result for the "Create Login" task
-        String expectedTask = "Task Name: Create Login\nDeveloper: Mike Smith\nTask Duration: 5.0\nTask Status: 3";
+        String expectedTask = "Task Name: Create Login\nDeveloper: Mike Smith\nTask Status: 3";
 
         // Call the method and assert the result
         assertEquals(expectedTask, DisplayTaskReport.displayTaskName("Create Login"));
@@ -90,9 +90,36 @@ public class PART3UnitTest {
     }
 
     @Test
+    public void testDisplayAllTasks() {
+        // Reset the task count and arrays before the test
+        DisplayTaskReport.resetTasks();
+
+        // Add tasks for testing
+        DisplayTaskReport.addTasks("Create Login", "Mike Smith", 5.0, "2");
+        DisplayTaskReport.addTasks("Create Add Features", "Edward Harrison", 8.0, "2");
+
+        // Expected result after adding tasks
+        String expectedTasks = "Task ID: CR:1:ITH\n"
+                + "Task Name: Create Login\n"
+                + "Developer: Mike Smith\n"
+                + "Task Duration: 5.0\n"
+                + "Task Status: 2\n\n"
+                + "Task ID: CR:2:SON\n"
+                + "Task Name: Create Add Features\n"
+                + "Developer: Edward Harrison\n"
+                + "Task Duration: 8.0\n"
+                + "Task Status: 2\n\n";
+
+
+        // Get all tasks and assert the result
+        String actualTasks = DisplayTaskReport.displayAllTasks();
+        assertEquals(expectedTasks.trim(), actualTasks.trim());
+    }
+
+    @Test
     public void testDeleteTask() {
         // Add tasks for testing
-       // Add test data for multiple tasks
+        // Add test data for multiple tasks
         DisplayTaskReport.addTasks("Create Login", "Mike Smith", 5.0, "2");
         DisplayTaskReport.addTasks("Create Add Features", "Edward Harrison", 8.0, "2");
         DisplayTaskReport.addTasks("Create Reports", "Samantha Paulson", 2.0, "3");
@@ -104,33 +131,5 @@ public class PART3UnitTest {
         // Assert the deletion result message
         assertEquals("Task 'Create Reports' deleted successfully.", deletionResult);
 
-    } 
-    
-    
-    @Test
-    public void testDisplayAllTasks() {
-        // Add tasks for testing
-        DisplayTaskReport.addTasks("Create Login", "Mike Smith", 5.0, "2");
-       // DisplayTaskReport.addTasks("Create Add Features", "Edward Harrison", 8.0, "2");
-
-
-        // Expected result after adding tasks
-        String expectedTasks = "Task ID: CR:1:ITH\n"
-                             + "Task Name: Create Login\n"
-                             + "Developer: Mike Smith\n"
-                             + "Task Duration: 5.0\n"
-                             + "Task Status: 2\n\n";
-//                             + "Task ID: 2\n"
-//                             + "Task Name: Create Add Features\n"
-//                             + "Developer: Edward Harrison\n"
-//                             + "Task Duration: 8.0\n"
-//                             + "Task Status: 2\n\n"
-//                             + "Task ID: 3\n";
-             
-
-        // Get all tasks and assert the result
-        String actualTasks = DisplayTaskReport.displayAllTasks();
-        assertEquals(expectedTasks.trim(), actualTasks.trim());
     }
 }
-

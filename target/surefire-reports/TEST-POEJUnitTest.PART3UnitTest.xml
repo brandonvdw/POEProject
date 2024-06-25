@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="POEJUnitTest.PART3UnitTest" time="0.022" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="POEJUnitTest.PART3UnitTest" time="0.02" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="ZA"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\brand\AppData\Local\Temp\surefire14490516458750860413\surefirebooter18421252745418088363.jar C:\Users\brand\AppData\Local\Temp\surefire14490516458750860413 2024-06-25T19-20-10_225-jvmRun1 surefire2807295233750407625tmp surefire_05507848339450478501tmp"/>
+    <property name="sun.java.command" value="C:\Users\brand\AppData\Local\Temp\surefire17074040168722623277\surefirebooter9017723104460755543.jar C:\Users\brand\AppData\Local\Temp\surefire17074040168722623277 2024-06-25T19-25-43_672-jvmRun1 surefire8089277246737856296tmp surefire_07809987692729941392tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="POEJUnitTest.PART3UnitTest#testDisplayAllTasks"/>
     <property name="surefire.test.class.path" value="C:\Users\brand\Desktop\POE Project FINAL\POEProject\target\test-classes;C:\Users\brand\Desktop\POE Project FINAL\POEProject\target\classes;C:\Users\brand\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\brand\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\brand\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\brand\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\brand\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\brand\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\brand\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\brand\AppData\Local\Temp\surefire14490516458750860413\surefirebooter18421252745418088363.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\brand\AppData\Local\Temp\surefire17074040168722623277\surefirebooter9017723104460755543.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.2+13-LTS-58"/>
@@ -60,5 +60,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testDisplayAllTasks" classname="POEJUnitTest.PART3UnitTest" time="0.018"/>
+  <testcase name="testDisplayAllTasks" classname="POEJUnitTest.PART3UnitTest" time="0.017"/>
 </testsuite>
