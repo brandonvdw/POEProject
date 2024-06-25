@@ -22,12 +22,22 @@ public class DisplayTaskReport {
     private static String returnReport;
 
     // Method to add a task
+    // Method to add a task
     public static void addTasks(String taskName, String devName, double taskDuration, String taskStat) {
         if (taskCount < MAX_TASKS) {
-            TaskClass Tasks = new TaskClass();
+            TaskClass task = new TaskClass();
+            task.setTaskName(taskName);
+            task.setDevName(devName);
+            task.setTaskDuration(taskDuration);
+            task.setTaskStat(taskStat);
+            task.setNumTasks(taskCount + 1); // Assuming task count starts at 1 for ID generation
 
+            // Generate task ID
+            String taskID = task.createTaskID();
+
+            // Store task details
             taskNames[taskCount] = taskName;
-            taskIDs[taskCount] = Tasks.getTaskID();
+            taskIDs[taskCount] = taskID;
             devNames[taskCount] = devName;
             taskDurations[taskCount] = taskDuration;
             taskStats[taskCount] = taskStat;
@@ -59,7 +69,7 @@ public class DisplayTaskReport {
     }
 
     public static String displayLongestDuration() {
-        double largestDuration = taskDurations[0];
+        double largestDuration = 0;
         String LongestDuration = "";
 
         for (int i = 0; i < taskDurations.length; i++) {
@@ -75,52 +85,47 @@ public class DisplayTaskReport {
 
     public static String displayTaskName(String taskName) {
 
-        String finalDisplay = "";
-
-        for (int i = 0; i < taskNames.length; i++) {
-            if (taskNames[i] == taskName) {
-
-                finalDisplay = "Task Name: " + taskNames[i] + "\n Developer: " + devNames[i] + "\n Task Status: " + taskStats[i];
+        for (int i = 0; i < taskCount; i++) {
+            if (taskNames[i].equals(taskName)) {
+                return "Task Name: " + taskNames[i]
+                        + "\nDeveloper: " + devNames[i]
+                        + "\nTask Duration: " + taskDurations[i]
+                        + "\nTask Status: " + taskStats[i];
             }
-
         }
-        return finalDisplay;
-
+        return "Task not found.";
     }
 
     public static String displayTasksAssigned(String devName) {
+        StringBuilder reportBuilder = new StringBuilder("Tasks assigned to " + devName + ":\n");
+        devName = devName.trim().toLowerCase();
 
-        StringBuilder reportBuilder = new StringBuilder();
-
-        for (int i = 0; i < devNames.length; i++) {
-            if ((devNames[i].equalsIgnoreCase(devName))) {
-                if (reportBuilder.length() > 0) {
-                    reportBuilder.append("\n");
-                }
-                reportBuilder
-                        .append("\nTask Name: ").append(taskNames[i])
-                        .append("\nTask Status: ").append(taskStats[i]);
+        for (int i = 0; i < taskCount; i++) {
+            if (devNames[i].trim().equalsIgnoreCase(devName)) {
+                reportBuilder.append("Task: ").append(taskNames[i])
+                        .append("\nTask Status: ").append(taskStats[i])
+                        .append("\nTask Duration: ").append(taskDurations[i]).append("\n\n");
             }
         }
 
-        return reportBuilder.toString();
+        return reportBuilder.length() > 0 ? reportBuilder.toString() : "No tasks found for the developer.";
     }
 
     public static String deleteTasks(String taskName) {
 
-        for (int i = 0; i < taskNames.length; i++) {
-
-            if ((taskNames[i].equalsIgnoreCase(taskName))) {
-                taskNames[i] = "";
-                taskIDs[i] = "";
-                devNames[i] = "";
+        for (int i = 0; i < taskCount; i++) {
+            if (taskNames[i] != null && taskNames[i].equalsIgnoreCase(taskName)) {
+                taskNames[i] = null;
+                taskIDs[i] = null;
+                devNames[i] = null;
                 taskDurations[i] = 0;
-                taskStats[i] = "";
+                taskStats[i] = null;
+                taskCount--;
 
+                return "Task '" + taskName + "' deleted successfully.";
             }
-
         }
-        return "Task has been deleted";
+        return "Task not found.";
     }
 
     public static String displayAllTasks() {

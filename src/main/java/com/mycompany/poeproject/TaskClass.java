@@ -136,6 +136,10 @@ public class TaskClass {
                 break;
         }
     }
+
+   
+
+    
     
     /*
     In text references: 
@@ -162,6 +166,7 @@ public class TaskClass {
 // Prints the details of the task by printing them out on multiple lines
     public String printTaskDetails() {
         String outputFinal;
+        createTaskID();
 
         outputFinal = "Task status: " + taskStat + "\nDeveloper details: " + devName + "\nTask Number: " + numTasks + "\nTask Name: " + taskName
                 + "\nTask Description: " + taskDescription

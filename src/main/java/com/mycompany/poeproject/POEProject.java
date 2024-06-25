@@ -173,6 +173,7 @@ public class POEProject {
 
                                 // Call the method to display the task details using a message dialog
                                 JOptionPane.showMessageDialog(f, Tasks.printTaskDetails());
+                                
                             }
 
                             Report.addTasks(taskName, devName, taskDuration, taskStat);
@@ -199,7 +200,7 @@ public class POEProject {
                                 + "\n5. Delete a task "
                                 + "\n6. Display a report of all tasks"));
 
-                        if (choice == 1) {
+                        if (choice == 1) {  
                           JOptionPane.showMessageDialog(f,Report.printDoneTasksReport());
                           
                         } else if (choice == 2) {
