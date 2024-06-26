@@ -15,12 +15,13 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class PART3UnitTest {
 
+    // Test to see if the developer array is correctly populated
     @Test
     public void testAddTasksPopulatesDeveloperArray() {
         // Reset the task count and arrays before the test
         DisplayTaskReport.resetTasks();
 
-        // Test data
+        // Adding test data
         String[] developers = {"Mike Smith", "Edward Harrington", "Samantha Paulson", "Glenda Oberholzer"};
         String taskName = "Sample Task";
         double taskDuration = 1.0;
@@ -37,12 +38,13 @@ public class PART3UnitTest {
         }
     }
 
+    // Test to see if the method that displays the task with the longest duration works
     @Test
     public void testDisplayLongestDuration() {
         // Reset the task count and arrays before the test
         DisplayTaskReport.resetTasks();
 
-        // Add test data
+        // Adding test data
         DisplayTaskReport.addTasks("Task1", "Mike Smith", 5.0, "2");
         DisplayTaskReport.addTasks("Task2", "Edward Harrington", 7.5, "1");
         DisplayTaskReport.addTasks("Task3", "Samantha Paulson", 3.0, "3");
@@ -55,7 +57,8 @@ public class PART3UnitTest {
         String actual = DisplayTaskReport.displayLongestDuration();
         assertEquals(expected, actual);
     }
-
+    
+    // Test to see if the method that returns the required information by searching for the task
     @Test
     public void testDisplayTaskName() {
         // Reset the task count and arrays before the test
@@ -64,19 +67,20 @@ public class PART3UnitTest {
         // Add test data for "Create Login" task
         DisplayTaskReport.addTasks("Create Login", "Mike Smith", 5.0, "3");
 
-        // Expected result for the "Create Login" task
+        // Expected result
         String expectedTask = "Task Name: Create Login\nDeveloper: Mike Smith\nTask Status: 3";
 
         // Call the method and assert the result
         assertEquals(expectedTask, DisplayTaskReport.displayTaskName("Create Login"));
     }
 
+    // Test to see if the method that returns all the tasks assigned to a developer by using the developers name to search
     @Test
     public void testDisplayTasksAssigned() {
         // Reset the task count and arrays before the test
         DisplayTaskReport.resetTasks();
 
-        // Add test data for multiple tasks
+        // Adding test data
         DisplayTaskReport.addTasks("Create Login", "Mike Smith", 5.0, "2");
         DisplayTaskReport.addTasks("Create Add Features", "Edward Harrison", 8.0, "2");
         DisplayTaskReport.addTasks("Create Reports", "Samantha Paulson", 2.0, "3");
@@ -89,12 +93,13 @@ public class PART3UnitTest {
         assertEquals(expectedTasksForSamantha, DisplayTaskReport.displayTasksAssigned("Samantha Paulson"));
     }
 
+    // Test to see if the method that displays all tasks works
     @Test
     public void testDisplayAllTasks() {
         // Reset the task count and arrays before the test
         DisplayTaskReport.resetTasks();
 
-        // Add tasks for testing
+         // Adding test data
         DisplayTaskReport.addTasks("Create Login", "Mike Smith", 5.0, "2");
         DisplayTaskReport.addTasks("Create Add Features", "Edward Harrison", 8.0, "2");
 
@@ -116,10 +121,11 @@ public class PART3UnitTest {
         assertEquals(expectedTasks.trim(), actualTasks.trim());
     }
 
+    // Test to see if the method that deletes tasks works
     @Test
     public void testDeleteTask() {
-        // Add tasks for testing
-        // Add test data for multiple tasks
+        
+         // Adding test data
         DisplayTaskReport.addTasks("Create Login", "Mike Smith", 5.0, "2");
         DisplayTaskReport.addTasks("Create Add Features", "Edward Harrison", 8.0, "2");
         DisplayTaskReport.addTasks("Create Reports", "Samantha Paulson", 2.0, "3");
